@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginScreen from './screens/LoginScreen/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
+import Home from './Home';
+import UpcomingMatches from './screens/upcomingMatches';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <React.StrictMode>
+      <main className="App">
+      <p>Este es un parrafo narmal</p>
+      <Routes>
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/matches" element={<UpcomingMatches />} />
+      </Routes>
+      </main>
+      </React.StrictMode>
+    </BrowserRouter>
   );
 }
 
